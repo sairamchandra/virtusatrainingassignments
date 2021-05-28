@@ -1,0 +1,122 @@
+   MENU TABLEE
+
+
+ MySQL  localhost:3306 ssl  demovirtusa  SQL >  create table menu(id int, name_of_the_food varchar(20), rate int, type_of_the_food varchar(20), place varchar(15));
+Query OK, 0 rows affected (0.0638 sec)
+ MySQL  localhost:3306 ssl  demovirtusa  SQL >   desc menu
+                                            -> ;
++------------------+-------------+------+-----+---------+-------+
+| Field            | Type        | Null | Key | Default | Extra |
++------------------+-------------+------+-----+---------+-------+
+| id               | int         | YES  |     | NULL    |       |
+| name_of_the_food | varchar(20) | YES  |     | NULL    |       |
+| rate             | int         | YES  |     | NULL    |       |
+| type_of_the_food | varchar(20) | YES  |     | NULL    |       |
+| place            | varchar(15) | YES  |     | NULL    |       |
++------------------+-------------+------+-----+---------+-------+
+5 rows in set (0.0385 sec)
+  MySQL  localhost:3306 ssl  demovirtusa  SQL > insert into MENU values(1,'chicken',5,'NON_VEG','AndhraPradesh');
+Query OK, 1 row affected (0.0558 sec)
+ MySQL  localhost:3306 ssl  demovirtusa  SQL > insert into MENU values(2,'gobi',2,'VEG','AndhraPradesh');
+Query OK, 1 row affected (0.0325 sec)
+ MySQL  localhost:3306 ssl  demovirtusa  SQL > insert into MENU values(3,'EGG-gobi',5,'NON_VEG','TELNGANA');
+Query OK, 1 row affected (0.0447 sec)
+ MySQL  localhost:3306 ssl  demovirtusa  SQL > insert into MENU values(4,'EGG-RICE',5,'NON_VEG','TELNGANA');
+Query OK, 1 row affected (0.0535 sec)
+ MySQL  localhost:3306 ssl  demovirtusa  SQL > insert into MENU values(5,'CHICKEN-RICE',6,'NON_VEG','TELNGANA');
+Query OK, 1 row affected (0.0372 sec)
+ MySQL  localhost:3306 ssl  demovirtusa  SQL > SELECT * FROM MENU;
++----+------------------+------+------------------+---------------+
+| id | name_of_the_food | rate | type_of_the_food | place         |
++----+------------------+------+------------------+---------------+
+|  1 | chicken          |    5 | NON_VEG          | AndhraPradesh |
+|  2 | gobi             |    2 | VEG              | AndhraPradesh |
+|  3 | EGG-gobi         |    5 | NON_VEG          | TELNGANA      |
+|  4 | EGG-RICE         |    5 | NON_VEG          | TELNGANA      |
+|  5 | CHICKEN-RICE     |    6 | NON_VEG          | TELNGANA      |
++----+------------------+------+------------------+---------------+
+5 rows in set (0.0005 sec)
+ MySQL  localhost:3306 ssl  demovirtusa  SQL > SELECT NAME_OF_THE_FOOD FROM MENU WHERE TYPE_OF_THE_FOOD='VEG';
++------------------+
+| NAME_OF_THE_FOOD |
++------------------+
+| gobi             |
++------------------+
+1 row in set (0.0005 sec)
+ 
+ MySQL  localhost:3306 ssl  demovirtusa  SQL > SELECT NAME_OF_THE_FOOD FROM MENU WHERE TYPE_OF_THE_FOOD='NON_VEG';
++------------------+
+| NAME_OF_THE_FOOD |
++------------------+
+| chicken          |
+| EGG-gobi         |
+| EGG-RICE         |
+| CHICKEN-RICE     |
++------------------+
+4 rows in set (0.0005 sec)
+MySQL  localhost:3306 ssl  demovirtusa  SQL > SELECT NAME_OF_THE_FOOD FROM MENU WHERE RATE IN(SELECT RATE FROM MENU WHERE TYPE_OF_THE_FOOD='NON-VEG') ;
+Empty set (0.0295 sec)
+ MySQL  localhost:3306 ssl  demovirtusa  SQL > SELECT NAME_OF_THE_FOOD FROM MENU WHERE RATE IN(SELECT RATE FROM MENU WHERE TYPE_OF_THE_FOOD='NON_VEG') ;
++------------------+
+| NAME_OF_THE_FOOD |
++------------------+
+| chicken          |
+| EGG-gobi         |
+| EGG-RICE         |
+| CHICKEN-RICE     |
++------------------+
+4 rows in set (0.0007 sec)
+ MySQL  localhost:3306 ssl  demovirtusa  SQL > SELECT NAME_OF_THE_FOOD FROM MENU WHERE RATE IN(SELECT RATE FROM MENU WHERE TYPE_OF_THE_FOOD='VEG') ;
++------------------+
+| NAME_OF_THE_FOOD |
++------------------+
+| gobi             |
++------------------+
+1 row in set (0.0007 sec)
+ MySQL  localhost:3306 ssl  demovirtusa  SQL > SELECT NAME_OF_THE_FOOD FROM MENU WHERE RATE IN(SELECT RATE FROM MENU WHERE RATE>2) ;
++------------------+
+| NAME_OF_THE_FOOD |
++------------------+
+| chicken          |
+| EGG-gobi         |
+| EGG-RICE         |
+| CHICKEN-RICE     |
++------------------+
+4 rows in set (0.0007 sec)
+ MySQL  localhost:3306 ssl  demovirtusa  SQL > SELECT NAME_OF_THE_FOOD FROM MENU WHERE RATE IN(SELECT RATE FROM MENU WHERE RATE<2) ;
+Empty set (0.0007 sec) MySQL  localhost:3306 ssl  demovirtusa  SQL > SELECT * FROM MENU WHERE RATE IN(SELECT RATE FROM MENU WHERE ID >2) ;
++----+------------------+------+------------------+---------------+
+| id | name_of_the_food | rate | type_of_the_food | place         |
++----+------------------+------+------------------+---------------+
+|  1 | chicken          |    5 | NON_VEG          | AndhraPradesh |
+|  3 | EGG-gobi         |    5 | NON_VEG          | TELNGANA      |
+|  4 | EGG-RICE         |    5 | NON_VEG          | TELNGANA      |
+|  5 | CHICKEN-RICE     |    6 | NON_VEG          | TELNGANA      |
++----+------------------+------+------------------+---------------+
+4 rows in set (0.0006 sec)
+ MySQL  localhost:3306 ssl  demovirtusa  SQL > SELECT * FROM MENU WHERE RATE IN(SELECT RATE FROM MENU WHERE ID =5) ;
++----+------------------+------+------------------+----------+
+| id | name_of_the_food | rate | type_of_the_food | place    |
++----+------------------+------+------------------+----------+
+|  5 | CHICKEN-RICE     |    6 | NON_VEG          | TELNGANA |
++----+------------------+------+------------------+----------+
+1 row in set (0.0006 sec)
+ MySQL  localhost:3306 ssl  demovirtusa  SQL > SELECT * FROM MENU WHERE RATE IN(SELECT RATE FROM MENU WHERE ID =4) ;
++----+------------------+------+------------------+---------------+
+| id | name_of_the_food | rate | type_of_the_food | place         |
++----+------------------+------+------------------+---------------+
+|  1 | chicken          |    5 | NON_VEG          | AndhraPradesh |
+|  3 | EGG-gobi         |    5 | NON_VEG          | TELNGANA      |
+|  4 | EGG-RICE         |    5 | NON_VEG          | TELNGANA      |
++----+------------------+------+------------------+---------------+
+
+
+
+ MySQL  localhost:3306 ssl  demovirtusa  SQL > SELECT * FROM MENU WHERE RATE IN(SELECT RATE FROM MENU WHERE NAME_OF_THE_FOOD='CHICKEN') ;
++----+------------------+------+------------------+---------------+
+| id | name_of_the_food | rate | type_of_the_food | place         |
++----+------------------+------+------------------+---------------+
+|  1 | chicken          |    5 | NON_VEG          | AndhraPradesh |
+|  3 | EGG-gobi         |    5 | NON_VEG          | TELNGANA      |
+|  4 | EGG-RICE         |    5 | NON_VEG          | TELNGANA      |
++----+------------------+------+------------------+---------------+

@@ -1,0 +1,381 @@
+collections assignment
+
+1:program 1:
+package collassign;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.ListIterator;
+
+
+
+public class Arraylist {
+
+	public static void main(String[] args) {
+		//all datatypes
+		ArrayList list =new ArrayList();
+		list.add("sai");
+		list.add(22);
+		list.add("developer");
+		list.add("B tech");
+		list.add(2, "frondend");
+		list.set(1, "ram");
+		System.out.println(list);
+		//foreach method
+		for(Object obj:list) {
+			System.out.println(list);
+		}
+		//iterator
+		Iterator i1=list.iterator();
+		while(i1.hasNext()) {
+			System.out.println(i1.next());
+		}
+		//listiterator
+		ListIterator i2=list.listIterator(list.size());
+		while(i2.hasPrevious()) {
+			System.out.println(i2.previous());
+		}
+		//integertype
+		ArrayList list1 =new ArrayList();
+		list1.add(99);
+		list1.add(22);
+		list1.add(32);
+		list1.add(65);
+		list1.add(2, 55);
+		list1.set(1, 56);
+		System.out.println(list1);
+
+		Collections.sort(list1);
+		System.out.println(list1);
+		Collections.reverse(list1);
+		System.out.println(list1);
+		Collections.shuffle(list1);
+		System.out.println(list1);
+
+		ArrayList<String> list2 =new ArrayList<String>();
+		list2.add("sai");
+		list2.add("ram");
+		list2.add("chandra");
+		list2.add("Btech");
+		list2.add(2, "nriit");
+		list2.set(1, "college");
+		System.out.println(list2);
+
+		Collections.sort(list2);
+		System.out.println(list2);
+		Collections.reverse(list2);
+		System.out.println(list2);
+		Collections.shuffle(list2);
+		System.out.println(list2);
+		ArrayList<String> list3 =new ArrayList<String>();
+		list3.add("Araveti");
+		list2.addAll(0, list3);
+		System.out.println("adding addall method : "+list2);
+	}
+
+
+
+}
+
+===========
+program 2:
+
+package collassign;
+
+public class Friends {
+String Frnd1;
+
+public Friends(String frnd1) {
+	super();
+	Frnd1 = frnd1;
+	
+}
+
+public String getFrnd1() {
+	return Frnd1;
+}
+
+public void setFrnd1(String frnd1) {
+	Frnd1 = frnd1;
+}
+
+@Override
+public String toString() {
+	return "Friends [Frnd1=" + Frnd1 + "]";
+}
+
+}
+-------------------
+extends
+--------------------
+package collassign;
+import java.util.LinkedList;
+import java.util.Scanner;
+
+public class ArrayLiUs {
+
+
+	public static void main(String[] args) {
+
+		@SuppressWarnings("resource")
+		Scanner sc=new Scanner(System.in);
+
+		LinkedList<Friends> ls=new LinkedList<Friends>();
+		String res=null;
+		do {
+			System.out.println("enter the id and name and percentage");
+			String Frnd1=sc.next();
+
+			Friends frnd=new Friends(Frnd1);
+			boolean rs=ls.add(frnd);
+			if(rs) {
+				System.out.println("added data");
+			}
+			else {
+				System.out.println("not added data");
+			}
+			System.out.println("do you have more frnds give 'yes' or 'no'");
+			res=sc.next();
+		}while(res.equalsIgnoreCase("yes"));
+
+		System.out.println("First Frnd details :"+ls.getFirst());
+		System.out.println("last Frnd details :"+ls.getLast());
+
+		// all frnds 
+		for(int i=1;i<=ls.size();i++) {
+			System.out.println(ls);
+		}
+	}
+
+}
+====================
+program 3:
+
+
+package collassign;
+import java.util.*;  
+public class Linked {
+
+
+	public static void main(String [] args)  
+	{  
+		LinkedList<String> ll=new LinkedList<String>();  
+		ll.add("Ravi");  
+		ll.add("Vijay");  
+		ll.add("Ajay");  
+		ll.add("Anuj");  
+		ll.add("Gaurav");  
+		ll.add("Harsh");  
+		ll.add("Virat");  
+		ll.add("Gaurav");  
+		ll.add("Harsh");  
+		ll.add("Amit");  
+		System.out.println("Initial list of elements: "+ll);  
+		//Removing specific element from arraylist  
+		ll.remove("Vijay");  
+		System.out.println("After invoking remove(object) method: "+ll);   
+		//Removing element on the basis of specific position  
+		ll.remove(0);  
+		System.out.println("After invoking remove(index) method: "+ll);   
+		LinkedList<String> ll2=new LinkedList<String>();  
+		ll2.add("Ravi");  
+		ll2.add("Hanumat");  
+		// Adding new elements to arraylist  
+		ll.addAll(ll2);  
+		System.out.println("Updated list : "+ll);   
+		//Removing all the new elements from arraylist  
+		ll.removeAll(ll2);  
+		System.out.println("After invoking removeAll() method: "+ll);   
+		//Removing first element from the list  
+		ll.removeFirst();  
+		System.out.println("After invoking removeFirst() method: "+ll);  
+		//Removing first element from the list  
+		ll.removeLast();  
+		System.out.println("After invoking removeLast() method: "+ll);  
+		//Removing first occurrence of element from the list  
+		ll.removeFirstOccurrence("Gaurav");  
+		System.out.println("After invoking removeFirstOccurrence() method: "+ll);  
+		//Removing last occurrence of element from the list  
+		ll.removeLastOccurrence("Harsh");  
+		System.out.println("After invoking removeLastOccurrence() method: "+ll);  
+
+		//Removing all the elements available in the list       
+		ll.clear();  
+		System.out.println("After invoking clear() method: "+ll);   
+	}  
+}    
+
+
+
+==============================
+program 4:
+
+
+
+
+
+
+package collassign;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.ListIterator;
+
+
+
+public class Linkedlist {
+
+	public static void main(String[] args) {
+		//all datatypes
+		LinkedList list =new LinkedList();
+		list.add("sai");
+		list.add(22);
+		list.add("developer");
+		list.add("B tech");
+		list.add(2, "frondend");
+		list.set(1, "ram");
+		System.out.println(list);
+		//foreach method
+		for(Object obj:list) {
+			System.out.println(list);
+		}
+		//iterator
+		Iterator i1=list.iterator();
+		while(i1.hasNext()) {
+			System.out.println(i1.next());
+		}
+		//listiterator
+		ListIterator i2=list.listIterator(list.size());
+		while(i2.hasPrevious()) {
+			System.out.println(i2.previous());
+		}
+		//integertype
+		LinkedList list1 =new LinkedList();
+		list1.add(99);
+		list1.add(22);
+		list1.add(32);
+		list1.add(65);
+		list1.add(2, 55);
+		list1.set(1, 56);
+		System.out.println(list1);
+
+		Collections.sort(list1);
+		System.out.println(list1);
+		Collections.reverse(list1);
+		System.out.println(list1);
+		Collections.shuffle(list1);
+		System.out.println(list1);
+
+		LinkedList<String> list2 =new LinkedList<String>();
+		list2.add("sai");
+		list2.add("ram");
+		list2.add("chandra");
+		list2.add("Btech");
+		list2.add(2, "nriit");
+		list2.set(1, "college");
+		System.out.println(list2);
+
+		Collections.sort(list2);
+		System.out.println(list2);
+		Collections.reverse(list2);
+		System.out.println(list2);
+		Collections.shuffle(list2);
+		System.out.println(list2);
+
+
+	}
+
+
+
+}
+==============================
+
+program5: user input:
+
+
+package collassign;
+
+public class Student {
+
+	String name;
+	double per;
+	int id;
+	public Student(String name,double per,int id) {
+		// TODO Auto-generated constructor stub
+		this.name=name;
+		this.per=per;
+		this.id=id;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public double getPer() {
+		return per;
+	}
+	public void setPer(double per) {
+		this.per = per;
+	}
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	@Override
+	public String toString() {
+		return "Student [name=" + name + ", id=" + id + ", perc=" + per + "]";
+	}
+}
+----------
+extends
+----------
+package collassign;
+
+import java.util.LinkedList;
+import java.util.Scanner;
+
+public class School {
+
+
+	public static void main(String[] args) {
+
+		@SuppressWarnings("resource")
+		Scanner sc=new Scanner(System.in);
+
+		LinkedList<Student> ls=new LinkedList<Student>();
+		String res=null;
+		do {
+			System.out.println("enter the id and name and percentage");
+			String name=sc.next();
+			int id=sc.nextInt();
+			double per=sc.nextDouble();
+			Student std=new Student(name,per,id);
+			boolean rs=ls.add(std);
+			if(rs) {
+				System.out.println("added data");
+			}
+			else {
+				System.out.println("not added data");
+			}
+			System.out.println("do you have more students");
+			res=sc.next();
+		}while(res.equalsIgnoreCase("yes"));
+
+		System.out.println("First student details :"+ls.getFirst());
+		System.out.println("last student details :"+ls.getLast());
+
+		// all student details
+		for(int i=1;i<=ls.size();i++) {
+			System.out.println(ls);
+		}
+	}
+
+}
+
+===========================

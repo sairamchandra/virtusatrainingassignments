@@ -1,0 +1,131 @@
+jdbc crud operation:
+
+program1: creating table:
+package AssIgn;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.Statement;
+
+public class Empl {
+ private static final String emp="CREATE TABLE EMPLOYEE1( "
+		+ "EID INT NOT NULL,"
+		+ "ENAME VARCHAR(20) NOT NULL,"
+		+ "EDESI VARCHAR(20) NOT NULL,"
+		+ "EAGE INT not null,"
+		+ "ESALARY INT not null,"
+		+ "PRIMARY KEY (EID))"; 
+	public static void main(String[] args) throws Exception {
+	String url="jdbc:mysql://localhost:3306/demovirtusa";
+	String user="root";
+	String pass="Sairamchandra65@";
+	try {
+	//connection
+	Connection conn=DriverManager.getConnection(url,user,pass);
+	//statement
+	Statement st=conn.createStatement();
+	System.out.println("connected");
+	st.executeUpdate(emp);
+	System.out.println("table created");
+	conn.close();
+	} catch (Exception e) {
+System.out.println(e);
+
+	
+	}
+		
+		
+	}
+
+}
+
+=========================================
+program table inserting values data:
+
+package AssIgn;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.Statement;
+
+public class Insert {
+
+	public static void main(String[] args) throws Exception {
+		String url="jdbc:mysql://localhost:3306/demovirtusa";
+		String user="root";
+		String pass="Sairamchandra65@";
+		try {
+			//connection
+			Connection conn=DriverManager.getConnection(url,user,pass);
+			//statement
+			Statement st=conn.createStatement();
+			String st1="INSERT INTO EMPLOYEE1 VALUES(95,'ramesh','SR_ARCHI',60,170000)";
+			st.executeUpdate(st1);
+			//		 st1="INSERT INTO EMPLOYEE1 VALUES(2,'bhavna','trainer',22,50000)";
+			//		st.executeUpdate(st1);
+			//		 st1="INSERT INTO EMPLOYEE1 VALUES(3,'pallavi','SR_ARCHI',22,65000)";
+			//		st.executeUpdate(st1);
+			//		 st1="INSERT INTO EMPLOYEE1 VALUES(4,'harsha','jun_archi',24,56000)";
+			//		st.executeUpdate(st1);
+			//		 st1="INSERT INTO EMPLOYEE1 VALUES(5,'sai','devel',25,35000)";
+			//		st.executeUpdate(st1);
+			System.out.println("inserted all details");
+			int rows=st.executeUpdate(st1);
+			if (rows>0) {
+				System.out.println("is inserted perfect");
+			} else {
+				System.out.println("something error");
+			}
+			conn.close();
+		} catch (Exception e) {
+			System.out.println(e);
+
+
+		}
+
+
+	}
+
+}
+====================================================
+program age greaterthan age 40 :
+
+
+
+package AssIgn;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+public class Age {
+	public static void main(String[] args) throws Exception ,SQLException{
+		String url="jdbc:mysql://localhost:3306/demovirtusa";
+		String user="root";
+		String pass="Sairamchandra65@";
+		try {
+			//connection
+			Connection conn=DriverManager.getConnection(url,user,pass);
+			//statement
+			System.out.println("yaa i got connection");
+
+			String st1="Update employee1 SET edesi=? where eage>?";	
+			PreparedStatement pre=conn.prepareStatement(st1);
+			pre.setString(1, "manager");
+			pre.setLong(2, 40);
+			int rows=pre.executeUpdate();
+			if (rows>0) {
+				System.out.println("updated");				
+			} else {
+				System.out.println("not updated");
+			}
+			conn.close();
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+	}
+}
+

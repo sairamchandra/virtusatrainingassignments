@@ -1,0 +1,49 @@
++--------+----------+-------+---------+----------+
+| std_id | std_name | marks | address |  pincode |
++--------+----------+-------+---------+----------+
+| 12sr1  | sai      |    48 | gnt     |  518003  |
+| 12sr2  | raji     |    49 | nlr     |  512456  | 
+| 12sr3  | pallavi  |    59 | krn     |  525265  |
+| 12sr4  | krithi   |    69 | mng     |  635265  |
++--------+----------+-------+---------+----------+
+
+
+sub quries:
+
+1. select std_name
+   from student
+   where std_id=(select std_id from student where marks=48);
+
+2.select std_name
+   from student
+   where std_id=(select std_id from student where std_name like '%a%');
+3.select std_name
+   from student
+   where std_id=(select std_id from student where std_name like 'a%');
+4.select std_name
+   from student
+   where std_id=(select std_id from student where address=gnt);
+5.select *
+   from student
+   where std_id=(select std_id from student where marks>40);
+
+6.select *
+   from student
+   where std_id=(select std_id from student where marks<40);
+7.select *
+   from student
+   where std_id=(select std_id from student where address='mng');
+
+8.select *
+   from student
+   where std_id=(select std_id from student where pincode=518003);
+9.select *
+   from student
+   where std_id=(select std_id from student where pincode=635265);
+10.select *
+   from student
+   where std_id=(select std_id from student where pincode=525265);
+
+
+
+
