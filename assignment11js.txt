@@ -1,0 +1,77 @@
+1.in which language we used inline functions .?
+C++ inline function is powerful concept that is commonly used with classes.
+ If a function is inline, the compiler places a copy of the code of that
+ function at each point where the function is called at compile time.
+
+
+
+where we used for
+The inline functions are a C++ enhancement feature to 
+increase the execution time of a program. Functions can be instructed to
+ compiler to make them inline so that compiler 
+can replace those function definition wherever those are being called.
+
+An inline function is a function that is 
+expanded inline when it is invoked, thus saving time. 
+The compiler replaces the function call with the corresponding
+ function code, which reduces the overhead of function calls.
+
+---------------------------------------------------------------
+
+2.what is the process of dom updation.?
+DOM processing is the time it takes to parse
+ the HTML into a DOM and retrieve or execute synchronous scripts.
+ If the browser starts to download images in this phase,
+ page load timing will capture the image load time.
+
+
+With the object model, JavaScript gets all the power it needs to create dynamic HTML:
+
+JavaScript can change all the HTML elements in the page
+JavaScript can change all the HTML attributes in the page
+JavaScript can change all the CSS styles in the page
+JavaScript can remove existing HTML elements and attributes
+JavaScript can add new HTML elements and attributes
+JavaScript can react to all existing HTML events in the page
+JavaScript can create new HTML events in the page
+
+
+example
+
+html: <P id="foo">Foo</p>
+js:var foo = document.getElementById('foo');
+
+function tellViewerLoading() {
+  // Tell the user that loading is occuring.
+  foo.innerHTML = 'loading...';   
+}
+
+function someActionThatTakesALongTime() {
+  // Do some action that takes a long time.
+  var i = 0;
+  while(i < 100000) {i++; console.log(i);};
+}
+
+function domUpdateDelayExperiment() {
+  tellViewerLoading();
+  someActionThatTakesALongTime();
+}
+
+domUpdateDelayExperiment();
+
+
+
+-----------------------------------------
+
+3.what is difference between web page and application
+
+
+Web Application: Web application is a piece of software that can be accessed by the browser. A Browser is an application that is used to browse the internet.
+Web application needs authentication. The web application uses a combination of server-side scripts and client-side scripts to present information. It requires a server to manage requests from the users.
+Example: Google Apps
+
+Website: Website is a collection of related web pages that contains images, text, audio, video, etc. It can be consist of one page, two pages, and n number of pages.
+A website provides visual and text content that users can view and read.
+To view a website requires a browser(chrome, firefox). There are many types of websites like Archive website, Blog, Community website, Dating website, etc.
+Example: Amazon, youtube, etc.
+
