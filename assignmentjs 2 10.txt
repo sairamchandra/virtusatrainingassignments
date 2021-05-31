@@ -1,0 +1,192 @@
+   javascriptAssignment 2
+
+
+1.series program
+
+
+
+
+
+
+
+
+
+
+
+-------------------------------------------------
+
+2.print prime number using js
+------------------------------------------
+
+for (let i = 1; i <= 50; i++) {
+  let flag = 0;
+
+  for (let j = 2; j < i; j++) {
+    if (i % j == 0) {
+      flag = 1;
+      break;
+    }
+  }
+
+  // if number greater than 1 and not divisible by other numbers
+  if (i > 1 && flag == 0) {
+    console.log(i);
+  }
+}
+-------------------------------------------------
+3.pattern 1
+--------------------------------------
+
+
+*
+**
+***
+****
+*****
+
+let n = 5;
+let string = "";
+for (let i = 1; i <= n; i++) {
+  for (let j = 0; j < i; j++) {
+    string += "*";
+  }
+  string += "\n";
+}
+console.log(string);
+//second
+
+
+----------------------------------------------------
+4.pattern 2
+-------------------------------------------------
+           *
+          * *
+        * * * *
+      * * * * * *
+
+   let n = 5;
+let string = "";
+// External loop
+for (let i = 1; i <= n; i++) {
+  // printing spaces
+  for (let j = 1; j <= n - i; j++) {
+    string += " ";
+  }
+  // printing star
+  for (let k = 0; k < 2 * i - 1; k++) {
+    string += "*";
+  }
+  string += "\n";
+}
+console.log(string);
+
+------------------------------------------------------
+5.print diamond pattern
+-------------------------------------------------------
+
+
+        * 
+       * * 
+      * * * 
+     * * * * 
+    * * * * * 
+   * * * * * * 
+  * * * * * * * 
+ * * * * * * * * 
+* * * * * * * * * 
+ * * * * * * * * 
+  * * * * * * * 
+   * * * * * * 
+    * * * * * 
+     * * * * 
+      * * * 
+       * * 
+        * 
+
+
+program:
+function createDimondShape(size) {
+  for (var i = 1; i <= size; i++) {
+    for (var s = size - 1; s >= i; s--) {
+      process.stdout.write(" ");
+    }
+    for (var j = 1; j <= i; j++) {
+      process.stdout.write("* ");
+    }
+    console.log();
+  }
+  if (i == size + 1) {
+    for (var i = 1; i <= size - 1; i++) {
+      for (var s = 1; s <= i; s++) {
+        process.stdout.write(" ");
+      }
+      for (j = i; j <= size - 1; j++) {
+        process.stdout.write("* ");
+      }
+      console.log();
+    }
+  }
+}
+createDimondShape(9);
+
+
+
+--------------------------------------------------------
+6.input using cmd line in nodejs.
+const readline = require("readline");
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout,
+  prompt: "OHAI> ",
+});
+
+rl.prompt();
+
+rl.on("line", line => {
+  switch (line.trim()) {
+    case "hello":
+      console.log("world!");
+      break;
+    default:
+      console.log(`Say what? I might have heard '${line.trim()}'`);
+      break;
+  }
+  rl.prompt();
+}).on("close", () => {
+  console.log("Have a great day!");
+  process.exit(0);
+});
+---------------------------------------------------------
+7.fibonacci series...?
+program:
+let fibonacci = [0, 1];
+
+function listFibonacci(num) {
+  // starting at array index 1, and push current index + previous index to the array
+  for (let i = 1; i < num; i++) {
+    fibonacci.push(fibonacci[i] + fibonacci[i - 1]);
+  }
+  console.log(fibonacci);
+}
+
+listFibonacci(25);
+-----------------------------------------------------------
+8.why we need do while loop imp..?
+
+
+It gives more legibility and maintainability as any construction
+ that helps give more semantics to the purpose.
+ Since do ... while has verification at the end,
+ ie the Repeat structure is executed at least once.
+
+
+Using the do-while loop, we can repeat the execution of several parts
+ of the statements. The do-while loop is mainly used in the case where
+ we need to execute the loop at least once. 
+The do-while loop is mostly used in menu-driven programs where the termination 
+condition depends upon the end user.
+
+
+
+
+
